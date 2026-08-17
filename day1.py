@@ -1,4 +1,4 @@
-"""
+
 # Print first code
 name = "Python"
 print("Learn", name)
@@ -97,7 +97,6 @@ print("remainder of a and b is: ", remainder)
 age = int(input("enter your current age: "))
 current_year = 2026
 print("you were born in the year: ", current_year - age)
-"""
 
 # Challenge 3: Create a salary calculator
 employee_name = input("enter your name: ")
