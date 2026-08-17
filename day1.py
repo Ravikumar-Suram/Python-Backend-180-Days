@@ -26,8 +26,10 @@ b = 4
 print(a+b)
 print(a-b)
 print(a*b)
-print(a/b)  # result will be float
-print(a//b) # result will be round number and no decimals
+print(a/b)  # result will be float (true division)
+print(a//b) # result will be round number and no decimals (floor division)
+print("Be carefull when inout is like this: ", 10.5//3)
+print("Also carefull with negative numbers: ", -10//3) # because Python floors toward negative infinity
 print(a%b)  # result will be remainder
 print(a**b)
 
@@ -61,9 +63,6 @@ print(type(cgpa))   # by default input from user is considered as a string
 cgpa_ = float(input("enter your cgpa rank: ")) # converting user input to float (if type integer then it will throw an error)
 print(type(cgpa_))
 
-"""
-# ------------------------------------------------
-"""
 # Conversions: 
 # 1.Type Conversion (python interpreter does it automatically also known as 'implicit')
 lucky_num = input("enter your lucky number: ")
@@ -77,22 +76,19 @@ print("its still a string:", type(lucky_number))
 print("here we are converting string to interger and float to integer:", int(lucky_number) + int(2.5))
 print("here interpreter convert 2.5 to 2 and then addition: ", int(lucky_number) + int(2.5))
 
-"""
-
-"""
 # Challenge 1: Write a program that takes two numbers and prints : addition, substraction, multiplication, division and remainder
 
-a = int(input("eneter number 1: "))
-b = int(input("eneter number 2: "))
+first_number = int(input("eneter number 1: "))
+second_number = int(input("eneter number 2: "))
 
-addition = a+b
-substraction = a-b
-multiplication = a*b
-division = a/b
-remainder = a%b
+addition = a + b
+subtraction = a - b
+multiplication = a * b
+division = a / b
+remainder = a % b
 
 print("addition of a and b is: ", addition)
-print("substraction of a and b is: ", substraction)
+print("subtraction of a and b is: ", subtraction)
 print("multiplication of a and b is: ", multiplication)
 print("division of a and b is: ", division)
 print("remainder of a and b is: ", remainder)
@@ -101,14 +97,21 @@ print("remainder of a and b is: ", remainder)
 age = int(input("enter your current age: "))
 current_year = 2026
 print("you were born in the year: ", current_year - age)
-
 """
 
 # Challenge 3: Create a salary calculator
-Basic = int(input("enter your basic component: "))
-Hra = int(input("enetr hra component: "))
-Transport = int(input("eneter transport allowance: "))
-Other = int(input("enter other allowance: "))
+employee_name = input("enter your name: ")
+basic = int(input("enter your basic component: "))
+hra = int(input("enetr hra component: "))
+transport = int(input("eneter transport allowance: "))
+other = int(input("enter other allowance: "))
 
-Gross_Salary = Basic + Hra + Transport + Other
-print("Your Gross Salary is: ", Gross_Salary)
+gross_salary = basic + hra + transport + other
+annual_salary = gross_salary * 12
+print("Your Name is: ", employee_name)
+
+tax = float(annual_salary * 0.1) # assuming tax is 10% of annual salary
+print("Your Gross Salary is: ", gross_salary)
+print("Your Annual Salary is: ", annual_salary)
+print("Your Tax is: ", tax)
+print("Net Annual Salary is: ", annual_salary - tax)
