@@ -88,6 +88,7 @@ Found Ravi
 and stop the loop using break.
 Otherwise, print the employee's name and salary.
 """
+
 for employee in employees:
     if employee['salary'] <= 20000:
         continue
@@ -97,18 +98,18 @@ for employee in employees:
 
 # While Loop --> Keep doing something while a condition is true.
 #Challenge 1 ---> while + user input
+
 """
 Write a program that repeatedly asks the user to enter a number.
 The program should continue asking until the user enters 0.
 """
-"""
+
 while True:
     number = int(input("Enter a number: "))
     if number == 0:
         print("program stopped")
         break
     print(f"You entered: {number}")
-"""
 
 # Challenge 2
 """
@@ -133,5 +134,63 @@ for employee in employees:
     print(f"{employee['name']}: {employee['salary']}")
     if employee['name'] == "Amit":
         print(f"Found {employee['name']}")
-        break # this is important here try without break and see the differnce
 
+# Advanced Challenge
+"""
+Part 1 — Salary filtering --> Print every employee earning more than ₹20,000
+Part 2 — Find the highest salary
+Part 3 — Find all employees with the highest salary --> There are two employees
+Part 4 — Department filtering --> Print only employees from the IT department:
+Part 5 — Salary classification --> Low, Medium, High
+Part 6 — Find the highest-paid IT employee.
+
+"""
+
+employees = [
+    {"name": "Raghu", "age": 30, "salary": 18000, "dept": "IT"},
+    {"name": "Ravi", "age": 39, "salary": 39000, "dept": "IT"},
+    {"name": "Rakesh", "age": 35, "salary": 22000, "dept": "HR"},
+    {"name": "Amit", "age": 42, "salary": 45000, "dept": "IT"},
+    {"name": "Priya", "age": 31, "salary": 45000, "dept": "Finance"},
+    {"name": "Neha", "age": 28, "salary": 25000, "dept": "HR"},
+]
+
+highest_salary = 0
+highest_it_salary = 0
+salary_classification = []
+employees_of_it_dept = []
+highest_paid_it_employees = []
+
+print("Part 1- Employees earning more than 20000:")
+
+for employee in employees:
+    if employee['salary'] > 20000:
+        print(f"{employee['name']}: {employee['salary']}")
+
+for employee in employees:             
+    if employee['salary'] > highest_salary:
+        highest_salary = employee['salary']
+        employee_with_high_salary = [employee['name']]
+    elif employee['salary'] == highest_salary:
+        employee_with_high_salary.append(employee['name'])
+
+    if employee['salary'] <= 20000:
+        salary_classification.append(f"{employee['name']} : Low")
+    elif employee['salary'] <= 40000:
+        salary_classification.append(f"{employee['name']} : Medium")
+    else:
+        salary_classification.append(f"{employee['name']} : High")
+        
+    if employee['dept'] == "IT":
+        employees_of_it_dept.append(employee['name'])   
+        if employee['salary'] > highest_it_salary: 
+            highest_it_salary = employee['salary']
+            highest_paid_it_employees = [employee['name']]
+        elif employee['salary'] == highest_it_salary:            
+            highest_paid_it_employees.append(employee['name'])
+    
+print(f"\nPart 2- Highest salary is:", highest_salary)
+print(f"\nPart 3- Highest paid employees:",employee_with_high_salary)
+print(f"\nPart 4- List of IT-Dept employees:",employees_of_it_dept)
+print(f"\nPart 5- Salary Classification:\n",salary_classification)
+print(f"\nPart 6- Highest paid IT employee:",highest_paid_it_employees)
