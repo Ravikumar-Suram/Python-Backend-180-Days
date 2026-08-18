@@ -20,15 +20,17 @@ DICT   → key/value pairs
 
 # Part 1: Strings
 # Strings are sequences of characters enclosed in single quotes, double quotes, or triple quotes.
-
+"""
 
 name = "Ravi"
 name2 = 'Ravi Suram'
 name3 = '''Ravi'''
 print(name, name2, name3)
-
-# String indexing
 """
+
+"""
+# String indexing
+
 R   a   v   i
 0   1   2   3
 -4  -3  -2  -1
@@ -290,4 +292,5 @@ else:
 # print all employees names and salaries
 for emp in employees:
     print(f"Employee: {emp['name']}\nSalary: {emp['salary']}\n")
+
 
